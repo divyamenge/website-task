@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E-Cart Online Shopping</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* NAVBAR */
+        nav {
+            background-color: #222;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #00bcd4;
+        }
+
+        /* HOME */
+        #home {
+            min-height: 450px;
+            background-color: #e3f2fd;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        #home h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            font-size: 21px;
+            margin-bottom: 30px;
+        }
+
+        .shop-btn {
+            background-color: #2196f3;
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        /* COMMON SECTION */
+        section {
+            padding: 60px 7%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        /* ABOUT */
+        #about {
+            background-color: white;
+            text-align: center;
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* PRODUCTS */
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: white;
+            width: 230px;
+            min-height: 350px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px gray;
+        }
+
+        .product-card img {
+            width: 160px;
+            height: 170px;
+            object-fit: contain;
+        }
+
+        .product-card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .product-card p {
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-btn:hover {
+            background-color: #e68900;
+        }
+
+        /* DIFFERENT SECTIONS */
+        #mobiles {
+            background-color: #f1f8e9;
+        }
+
+        #electronics {
+            background-color: #fff3e0;
+        }
+
+        #laptops {
+            background-color: #e8eaf6;
+        }
+
+        #accessories {
+            background-color: #fce4ec;
+        }
+
+        #fashion {
+            background-color: #e0f7fa;
+        }
+
+        #appliances {
+            background-color: #f3e5f5;
+        }
+
+        #offers {
+            background-color: #fff8e1;
+        }
+
+        /* OFFER BOX */
+        .offer-box {
+            background-color: #ff5722;
+            color: white;
+            text-align: center;
+            padding: 35px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .offer-box h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .offer-box p {
+            font-size: 18px;
+        }
+
+        /* CONTACT */
+        #contact {
+            background-color: #e8eaf6;
+            text-align: center;
+        }
+
+        .contact-form {
+            width: 450px;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+        }
+
+        .submit-btn {
+            background-color: #673ab7;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+
+        <div class="logo">
+            E-Cart
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#mobiles">Mobiles</a></li>
+            <li><a href="#electronics">Electronics</a></li>
+            <li><a href="#laptops">Laptops</a></li>
+            <li><a href="#accessories">Accessories</a></li>
+            <li><a href="#fashion">Fashion</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HOME -->
+    <section id="home">
+
+        <h1>Welcome to E-Cart</h1>
+
+        <p>
+            Your One-Stop Online Shopping Store
+        </p>
+
+        <a href="#mobiles" class="shop-btn">
+            Shop Now
+        </a>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2>About E-Cart</h2>
+
+        <p>
+            E-Cart is an online shopping website where you can
+            purchase mobiles, electronics, laptops, accessories,
+            fashion products and home appliances at affordable prices.
+            We provide quality products and a simple shopping experience.
+        </p>
+
+    </section>
+
+
+    <!-- MOBILES -->
+    <section id="mobiles">
+
+        <h2>Mobiles</h2>
+
+        <div class="product-container">
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/71d7rfSl0wL.jpg">
+
+                <h3>iPhone 15</h3>
+
+                <p>128 GB | 5G Smartphone</p>
+
+                <p class="price">₹69,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/71T5NVOgbpL._SL1500_.jpg">
+
+                <h3>Samsung Galaxy</h3>
+
+                <p>256 GB | 5G Smartphone</p>
+
+                <p class="price">₹49,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/71V--WZVUIL._SL1500_.jpg">
+
+                <h3>OnePlus 12</h3>
+
+                <p>256 GB | 5G Smartphone</p>
+
+                <p class="price">₹59,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ELECTRONICS -->
+    <section id="electronics">
+
+        <h2>Electronics</h2>
+
+        <div class="product-container">
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/61Io5-ojWUL._SL1500_.jpg">
+
+                <h3>Smart TV</h3>
+
+                <p>43 Inch 4K Ultra HD</p>
+
+                <p class="price">₹34,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._SL1500_.jpg">
+
+                <h3>Bluetooth Speaker</h3>
+
+                <p>Wireless Portable Speaker</p>
+
+                <p class="price">₹2,499</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg">
+
+                <h3>Headphones</h3>
+
+                <p>Wireless Noise Cancellation</p>
+
+                <p class="price">₹3,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LAPTOPS -->
+    <section id="laptops">
+
+        <h2>Laptops</h2>
+
+        <div class="product-container">
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/71jG+e7roXL._SL1500_.jpg">
+
+                <h3>HP Laptop</h3>
+
+                <p>Intel Core i5 | 8GB RAM</p>
+
+                <p class="price">₹55,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyTmG_VT-WAKMR-_wNPJR1uICAGZ_Dxift20a-Qfronw&s=10">
+
+                <h3>Dell Laptop</h3>
+
+                <p>Intel Core i5 | 16GB RAM</p>
+
+                <p class="price">₹62,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._SL1500_.jpg">
+
+                <h3>MacBook</h3>
+
+                <p>Apple M-Series | 8GB RAM</p>
+
+                <p class="price">₹89,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACCESSORIES -->
+    <section id="accessories">
+
+        <h2>Accessories</h2>
+
+        <div class="product-container">
+
+            <div class="product-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9qDPm2L2xc2DhxwCyBLCspsT_Q0XZy8yDatLwN6hjFw&s=10">
+
+                <h3>Smart Watch</h3>
+
+                <p>Fitness & Health Tracking</p>
+
+                <p class="price">₹2,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="data:image/jpeg;base64,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">
+
+                <h3>Power Bank</h3>
+
+                <p>20000mAh Fast Charging</p>
+
+                <p class="price">₹1,499</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SL1500_.jpg">
+
+                <h3>Wireless Mouse</h3>
+
+                <p>Wireless USB Mouse</p>
+
+                <p class="price">₹799</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FASHION -->
+    <section id="fashion">
+
+        <h2>Fashion</h2>
+
+        <div class="product-container">
+
+            <div class="product-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2zcOCYz6kkxo_Ke75ZTnDvgDhodderZ8-hHRto3km8Q&s=10">
+
+                <h3>Women's Dress</h3>
+
+                <p>Stylish Casual Wear</p>
+
+                <p class="price">₹1,299</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaTvVU_EXMsl6519Q51xrJiyF5yd2IF2zw0PobV-Nl8w&s=10">
+
+                <h3>Men's Shirt</h3>
+
+                <p>Premium Cotton Shirt</p>
+
+                <p class="price">₹999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFi6jeLzT2LYhgcyhT0BghrgWzN5xZy0uR2u4N2b_-8A&s=10">
+
+                <h3>Sports Shoes</h3>
+
+                <p>Comfortable Running Shoes</p>
+
+                <p class="price">₹1,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOME APPLIANCES -->
+    <section id="appliances">
+
+        <h2>Home Appliances</h2>
+
+        <div class="product-container">
+
+            <div class="product-card">
+
+                <img src="data:image/jpeg;base64,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">
+
+                <h3>Washing Machine</h3>
+
+                <p>Fully Automatic</p>
+
+                <p class="price">₹24,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTOqX3fvKAZ5cKiWzlfDvg95pASI65K6MXjUyPbFButjIWKy_xE-gvm4K1FosIEIHzpEgepJSAvpvIfWikXEoaPsIXUDSLe0vI2Sa_naW33oXZjU8qlhoAayRmURrA7M53uu7Yd908x&usqp=CAc">
+
+                <h3>Refrigerator</h3>
+
+                <p>Double Door Refrigerator</p>
+
+                <p class="price">₹32,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="C:\Users\divya\OneDrive\Pictures\shopping.webp">
+
+                <h3>Microwave Oven</h3>
+
+                <p>Convection Microwave</p>
+
+                <p class="price">₹9,999</p>
+
+                <button class="cart-btn">Add to Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OFFERS -->
+    <section id="offers">
+
+        <h2>Special Offers</h2>
+
+        <div class="offer-box">
+
+            <h3>Big E-Cart Sale!</h3>
+
+            <p>
+                Get up to 50% OFF on selected products.
+            </p>
+
+            <p>
+                Free delivery on orders above ₹999.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <div class="contact-form">
+
+            <input type="text" placeholder="Enter Your Name">
+
+            <input type="email" placeholder="Enter Your Email">
+
+            <input type="tel" placeholder="Enter Your Mobile Number">
+
+            <textarea placeholder="Enter Your Message"></textarea>
+
+            <button class="submit-btn">
+                Submit
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>© 2026 E-Cart | All Rights Reserved</p>
+
+        <p>Mobiles | Electronics | Laptops | Fashion | Accessories</p>
+
+    </footer>
+
+</body>
+
+</html>
+```
